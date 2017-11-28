@@ -2,11 +2,11 @@ package tester;
 
 import java.net.Socket;
 
-public class GoodputTesterTCP extends GoodputTesterAbstract {
+class GoodputTesterTCP extends GoodputTesterAbstract {
 
-	private Socket s;
+	private final Socket s;
 	
-	public GoodputTesterTCP(String ip, int port) throws Exception {
+	GoodputTesterTCP(String ip, int port) throws Exception {
 		s = new Socket(ip, port);
 	}
 	

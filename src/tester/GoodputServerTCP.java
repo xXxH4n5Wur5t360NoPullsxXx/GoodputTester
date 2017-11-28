@@ -5,9 +5,9 @@ import java.net.Socket;
 
 public class GoodputServerTCP extends GoodputServerAbstract {
 
-	ServerSocket s;
+	private final ServerSocket s;
 
-	public GoodputServerTCP(int port) throws Exception {
+	GoodputServerTCP(int port) throws Exception {
 		s = new ServerSocket(port);
 	}
 
@@ -36,9 +36,8 @@ public class GoodputServerTCP extends GoodputServerAbstract {
 	}
 
 	@Override
-	public void close() {
-		// TODO Auto-generated method stub
-
+	public void close() throws Exception {
+		s.close();
 	}
 
 }

@@ -1,8 +1,6 @@
 package tester;
 
 import java.time.LocalDateTime;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class Main {
@@ -12,13 +10,11 @@ public class Main {
 		String mode = args[0];
 		String packageType = args[1];
 		int port = Integer.parseInt(args[2]);
-
-		String ip = null;
 		
 		if ("client".equals(mode)) {
 			int n = Integer.parseInt(args[3]);
 			int k = Integer.parseInt(args[4]);
-			ip = args[5];
+			String ip = args[5];
 			client(ip, port, packageType, n , k);
 		} else {
 			server(port, packageType);

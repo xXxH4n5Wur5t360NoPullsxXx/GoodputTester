@@ -3,15 +3,12 @@ package tester;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
-import java.util.concurrent.atomic.AtomicLong;
 
-public class GoodputTesterUDP extends GoodputTesterAbstract {
+class GoodputTesterUDP extends GoodputTesterAbstract {
 
 	private final DatagramSocket ds;
 	
-	private AtomicLong runtime = new AtomicLong(0);
-	
-	public GoodputTesterUDP(String ip, int port) throws Exception {
+	GoodputTesterUDP(String ip, int port) throws Exception {
 		ds = new DatagramSocket();
 		ds.connect(InetAddress.getByName(ip), port);
 	}

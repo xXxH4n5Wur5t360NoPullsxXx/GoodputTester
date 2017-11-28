@@ -6,9 +6,9 @@ import java.net.SocketTimeoutException;
 
 public class GoodputServerUDP extends GoodputServerAbstract {
 
-	DatagramSocket s;
+	private DatagramSocket s;
 
-	public GoodputServerUDP(int port) throws Exception {
+	GoodputServerUDP(int port) throws Exception {
 		s = new DatagramSocket(port);
 	}
 
@@ -25,9 +25,7 @@ public class GoodputServerUDP extends GoodputServerAbstract {
 				s.receive(p);
 				packagecount++;
 			}
-		} catch (SocketTimeoutException e) {
-
-		}
+		} catch (SocketTimeoutException e) {}
 
 		long end = System.currentTimeMillis();
 
@@ -37,8 +35,7 @@ public class GoodputServerUDP extends GoodputServerAbstract {
 
 	@Override
 	public void close() throws Exception {
-		// TODO Auto-generated method stub
-
+		s.close();
 	}
 
 }
