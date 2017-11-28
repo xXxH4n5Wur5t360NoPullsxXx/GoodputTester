@@ -2,7 +2,7 @@ package tester;
 
 import java.net.Socket;
 
-public class GoodputTesterTCP extends GoodputtesterAbstract {
+public class GoodputTesterTCP extends GoodputTesterAbstract {
 
 	private Socket s;
 	
@@ -13,10 +13,9 @@ public class GoodputTesterTCP extends GoodputtesterAbstract {
 	@Override
 	void sendPackage(byte[] packagerino) {
 		try {
-		s.getOutputStream().write(packagerino);
-		s.getOutputStream().flush();
+			s.getOutputStream().write(packagerino);
+			s.getOutputStream().flush();
 		} catch (Exception e ) {
-			e.printStackTrace();
 		}
 	}
 

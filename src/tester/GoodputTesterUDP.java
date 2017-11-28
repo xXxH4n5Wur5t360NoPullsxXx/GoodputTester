@@ -5,7 +5,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class GoodputTesterUDP extends GoodputtesterAbstract {
+public class GoodputTesterUDP extends GoodputTesterAbstract {
 
 	private final DatagramSocket ds;
 	
@@ -20,11 +20,7 @@ public class GoodputTesterUDP extends GoodputtesterAbstract {
 	void sendPackage(byte[] packagerino) {
 		try {
 			DatagramPacket dp = new DatagramPacket(packagerino, packagerino.length);
-			long start = System.nanoTime();
 			ds.send(dp);
-			long stop = System.nanoTime();
-			System.out.printf("Sending package took %d ns", stop - start);
-			runtime.addAndGet(stop-start);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
