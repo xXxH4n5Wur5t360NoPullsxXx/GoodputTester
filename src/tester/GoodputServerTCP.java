@@ -37,6 +37,7 @@ public class GoodputServerTCP extends GoodputServerAbstract {
 
 	@Override
 	public void close() throws Exception {
+		ss.close();
 		s.close();
 	}
 
