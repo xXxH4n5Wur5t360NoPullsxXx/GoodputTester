@@ -21,18 +21,21 @@ public class GoodputServerTCP extends GoodputServerAbstract {
 		ss.setSoTimeout(10000);
 		packagecount += ss.getInputStream().read(packet);
 		long start = System.currentTimeMillis();
-
+		int terminator = 0;
 		try {
-			while (true) {
-				packagecount += ss.getInputStream().read(packet);
+			while (terminator != -1) {
+				terminator = ss.getInputStream().read(packet);
+				packagecount += terminator;
 			}
 		} catch (Exception e) {}
 
 		long end = System.currentTimeMillis();
-
+		packagecount++;
 		packagecount /= 1400;
 
 		this.print(packagecount, packagecount * 1400, end - start);
+		
+		ss.close();
 	}
 
 	@Override

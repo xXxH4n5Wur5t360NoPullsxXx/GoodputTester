@@ -15,11 +15,11 @@ public class GoodputServerUDP extends GoodputServerAbstract {
 	@Override
 	public void start() throws Exception {
 		long packagecount = 1;
+		s.setSoTimeout(10000);
 		DatagramPacket p = new DatagramPacket(new byte[1400], 1400);
 		s.receive(p);
 		long start = System.currentTimeMillis();
 		try {
-			s.setSoTimeout(10000);
 			while (true) {
 				p = new DatagramPacket(new byte[1400], 1400);
 				s.receive(p);
@@ -27,7 +27,7 @@ public class GoodputServerUDP extends GoodputServerAbstract {
 			}
 		} catch (SocketTimeoutException e) {}
 
-		long end = System.currentTimeMillis();
+		long end = System.currentTimeMillis() - 10000;
 
 
 		this.print(packagecount, packagecount * 1400, end - start);

@@ -8,16 +8,16 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		
 		String mode = args[0];
-		String packageType = args[1];
+		String protocol = args[1];
 		int port = Integer.parseInt(args[2]);
 		
 		if ("client".equals(mode)) {
 			int n = Integer.parseInt(args[3]);
 			int k = Integer.parseInt(args[4]);
 			String ip = args[5];
-			client(ip, port, packageType, n , k);
+			client(ip, port, protocol, n , k);
 		} else {
-			server(port, packageType);
+			server(port, protocol);
 		}
 		
 		
@@ -67,6 +67,8 @@ public class Main {
 
 		Thread.sleep(1000);
 
+		gp.close();
+		
 		System.out.printf("Send %d packages in 30 seconds. This conforms %d bytes. Therefore a speed of %d B/s " +
 				"was achieved%n", packageCount.get(), packageCount.get() * 1400, packageCount.get() * 1400 / 30);
 	}
