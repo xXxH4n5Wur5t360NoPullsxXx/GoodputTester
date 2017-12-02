@@ -19,9 +19,6 @@ public class Main {
 		} else {
 			server(port, packageType);
 		}
-		
-		
-		
 	}
 	
 	private static void client(String ip, int port, String packageType, int n, int k) throws Exception {

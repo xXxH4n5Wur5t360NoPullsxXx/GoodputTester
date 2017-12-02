@@ -32,12 +32,13 @@ public class GoodputServerTCP extends GoodputServerAbstract {
 
 		packagecount /= 1400;
 
+		ss.close();
+
 		this.print(packagecount, packagecount * 1400, end - start);
 	}
 
 	@Override
 	public void close() throws Exception {
-		ss.close();
 		s.close();
 	}
 
